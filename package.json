@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "concurrently --kill-others-on-fail \"node server.js\" \"cd client && yarn start\"",
-    "client": "cd client && node start"
+    "client": "cd client && node start",
+    "build": "cd client && npm run build"
   },
   "author": "",
   "license": "ISC",

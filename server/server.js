@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 
 
 // make express look in the public directory for assets (css/js/img)
-app.use(express.static("client/build"));
+app.use(express.static("build"));
 
 
 app.get('/api/hello', (req, res) => {

@@ -28,9 +28,10 @@ const MyMapComponent = compose(
           {
           icon: whtMarker,
           label: marker.eventId + "",
+          labelStyle: "fontSize: 16px"
           }
         }
-        // labelAnchor= {{point:(0,0)}}
+        // labelAnchor= {{point:(0,100)}}
         // labelStyle={{backgroundColor: "#4444", fontSize: "16px", padding: "10px"}}
       >
         {/* <div>{marker.eventId}</div> */}

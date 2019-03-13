@@ -11,7 +11,8 @@ import Button from '@material-ui/core/Button';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import EventList from '../EventList/EventList';
-import Grid from "@material-ui/core/Grid"
+import Grid from "@material-ui/core/Grid";
+import unImage from '../../assets/images/unav.png';
 
 class InputBar extends React.Component {
     constructor(props){
@@ -50,7 +51,7 @@ class InputBar extends React.Component {
         })
         .then(res=>{
             let events = res.data.events;
-            //console.log(events);
+            console.log(events);
             let tempArr = [];
             let locArr = []; 
             for(var i = 0; i < events.length; i++){
@@ -58,6 +59,7 @@ class InputBar extends React.Component {
                     name: events[i].name.text,
                     venue: events[i].venue.name,
                     address: events[i].venue.address.localized_address_display,
+                    time: events[i].start.local,
                     eventId: i + 1
                 };
                 let eventLoc = {

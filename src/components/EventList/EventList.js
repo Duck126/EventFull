@@ -7,7 +7,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
 import Avatar from '@material-ui/core/Avatar';
 import Grid from '@material-ui/core/Grid';
-import { Hidden } from '@material-ui/core';
+import unImage from '../../assets/images/unav.png';
 
 const styles = theme => ({
   root: {
@@ -18,7 +18,7 @@ const styles = theme => ({
      right: '0%',
      overflowY: 'scroll',
      overflowX: 'hidden',
-     height: '45%'
+     height: '47%'
   },
   divider: {
       color: 'black',
@@ -30,7 +30,7 @@ const styles = theme => ({
   avatar: {
     width: '50px',
     height: '50px',
-    position: 'absolute',
+    position: 'relative',
     bottom: '30%',
     right: '0%'
   }
@@ -49,7 +49,13 @@ class FolderList extends React.Component {
         <Grid item xs={3} sm={3} md={3} lg={3} xl={3}>
             <List className={classes.root}>
                 {this.props.eventData.map((el, i) =>{
-                    return <ListItem><Divider className={classes.divider}/> <Avatar className={classes.avatar} src={el.image}/> <ListItemText key={i} primary={el.name} secondary={el.venue + " " +el.address} /></ListItem> 
+                    return(
+                    <ListItem>
+                        <Divider className={classes.divider}/> 
+                            <Avatar className={classes.avatar} src={el.img}/> 
+                            <ListItemText key={el.eventId} primary={el.eventId + ": " + el.name} secondary={el.venue + " " +el.address} />
+                    </ListItem> 
+                    )
                 })}
             </List>
         </Grid>

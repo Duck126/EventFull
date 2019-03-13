@@ -2,11 +2,11 @@ import React from 'react';
 
 const Mstyle = {
     Map: {
-        position: "relative",
-        height: "160%",
-        width: "100%",
+        position: "absolute",
+        height: "92.5%",
+        width: "75%",
         marginLeft:"0%",
-        bottom: "0%"
+        top: "7.5%"
     },
     container: {
         height: "100%",

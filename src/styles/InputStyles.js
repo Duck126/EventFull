@@ -1,15 +1,16 @@
 import React from 'react';
+import zIndex from '@material-ui/core/styles/zIndex';
 
 const Styles = {
     Container: {
         height: "40%",
         width: "25%",
         paddingRight:"0%",
-        display: 'flex',
+        display: 'grid',
         flexWrap: 'wrap',
         marginLeft: "0%",
         marginTop: "auto",
-        position: "fixed",
+        position: "absolute",
         right: "0%",
         top: "7.5%",
         backgroundColor: "#4444"
@@ -17,9 +18,9 @@ const Styles = {
     Date: {
         marginLeft: "10px",
         marginRight: "15px",
-        positon: "relative",
+        positon: "absolute",
         top:"0px",
-        paddingRight:"0%"
+        paddingRight:"0%",
     },
     Radius: {
         positon: "relative",
@@ -36,7 +37,8 @@ const Styles = {
         height: "15.5%",
         width: "100%",
         position:"absolute",
-        bottom: "-50px",
+        bottom: "-11%",
+        backgroundColor:'black'
     }
     
 };

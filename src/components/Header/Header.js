@@ -27,7 +27,8 @@ const styles = {
     height: '25%'
   },
   AppBar: {
-    height: '7.5%'
+    height: '7.5%',
+    backgroundColor: 'black'
   }
 };
 

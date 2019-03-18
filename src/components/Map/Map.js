@@ -1,6 +1,7 @@
 import React from "react"
 import { compose, withProps} from "recompose"
 import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps"
+import { MarkerClusterer } from "react-google-maps/lib/components/addons/MarkerClusterer"
 import whtMarker from "../../assets/images/whtMarker.png";
 import Mstyle from "../../styles/MapStyle";
 import Grid from "@material-ui/core/Grid"
@@ -21,22 +22,26 @@ const MyMapComponent = compose(
     defaultCenter={{ lat: 30.2672, lng: -97.7431 }}
     defaultOptions={{ styles: Mstyle.themeStyles }}
   >
-    {props.markers.map(marker  =>  (
-      <Marker
-        position={{ lat: marker.lat, lng: marker.lng }}
-        defaultOptions={
-          {
-          icon: whtMarker,
-          label: marker.eventId + "",
-          labelStyle: "fontSize: 16px"
+  <MarkerClusterer
+      onClick={props.onMarkerClustererClick}
+      averageCenter
+      enableRetinaIcons
+      gridSize={1}
+    >
+      {props.markers.map(marker  =>  (
+        <Marker
+          position={{ lat: marker.lat, lng: marker.lng }}
+          key={marker.eventId}
+          defaultOptions={
+            {
+            icon: whtMarker,
+            label:{ text: marker.eventId + "", fontWeight: "bold", fontSize: "18px", }
+            }
           }
-        }
-        // labelAnchor= {{point:(0,100)}}
-        // labelStyle={{backgroundColor: "#4444", fontSize: "16px", padding: "10px"}}
-      >
-        {/* <div>{marker.eventId}</div> */}
-      </Marker>
-    ))}
+        >
+        </Marker>
+      ))}
+    </MarkerClusterer>
   </GoogleMap>
 )
 
@@ -72,6 +77,11 @@ class MyMap extends React.PureComponent {
   handleMarkerClick = () => {
     this.setState({ isMarkerShown: false })
     // this.delayedShowMarker()
+  }
+
+  onMarkerClustererClick = () => {
+    this.getMarkers( this.markers);
+    console.log(this.markers);
   }
 
   render() {

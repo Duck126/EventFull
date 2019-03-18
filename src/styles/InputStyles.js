@@ -1,5 +1,4 @@
-import React from 'react';
-import zIndex from '@material-ui/core/styles/zIndex';
+
 
 const Styles = {
     Container: {
@@ -13,7 +12,7 @@ const Styles = {
         position: "absolute",
         right: "0%",
         top: "7.5%",
-        backgroundColor: "#4444"
+        backgroundColor: "#B1B1B1"
     },
     Date: {
         marginLeft: "10px",
@@ -38,9 +37,9 @@ const Styles = {
         width: "100%",
         position:"absolute",
         bottom: "-11%",
-        backgroundColor:'black'
+        backgroundColor:'#B1B1B1',
+        zIndex: 50,
     }
-    
 };
 
 export default Styles;

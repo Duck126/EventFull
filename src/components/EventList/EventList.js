@@ -2,17 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
+import moment from 'moment';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
 import Avatar from '@material-ui/core/Avatar';
 import Grid from '@material-ui/core/Grid';
-import unImage from '../../assets/images/unav.png';
 
 const styles = theme => ({
   root: {
      width: '25%',
-     backgroundColor: '#4444',
+     backgroundColor: '#B1B1B1',
      position: 'fixed',
      bottom: '0%',
      right: '0%',
@@ -53,7 +53,7 @@ class FolderList extends React.Component {
                     <ListItem>
                         <Divider className={classes.divider}/> 
                             <Avatar className={classes.avatar} src={el.img}/> 
-                            <ListItemText key={el.eventId} primary={el.eventId + ": " + el.name} secondary={el.venue + " " +el.address} />
+                            <ListItemText key={el.eventId} primary={el.eventId + ": " + el.name} secondary={el.venue + " " +el.address + " - " +  moment(el.time).format('LLLL')} />
                     </ListItem> 
                     )
                 })}

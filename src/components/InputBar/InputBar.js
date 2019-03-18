@@ -19,7 +19,7 @@ class InputBar extends React.Component {
         super(props);
         this.state = {
             searchInput: "music",
-            location: "Austin Texas",
+            location: "Austin TX",
             radius: "30mi",
             date:"this_week",
             eventList: [],
@@ -54,12 +54,20 @@ class InputBar extends React.Component {
             console.log(events);
             let tempArr = [];
             let locArr = []; 
+            let imgArr = [];
             for(var i = 0; i < events.length; i++){
+                if(events[i].logo == null){
+                    imgArr.push(unImage);
+                }else {
+                    imgArr.push(events[i].logo.url)
+                }
+                console.log(imgArr);
                 let event = {
                     name: events[i].name.text,
                     venue: events[i].venue.name,
                     address: events[i].venue.address.localized_address_display,
                     time: events[i].start.local,
+                    img: imgArr[i],
                     eventId: i + 1
                 };
                 let eventLoc = {
@@ -160,7 +168,7 @@ class InputBar extends React.Component {
                                 <MenuItem value={"30mi"}>30mi</MenuItem>
                             </Select>
                         </FormControl>
-                        <Button variant="contained" color="primary" className={classes.button} onClick={this.handleSubmit}>
+                        <Button variant="contained" color="black" className={classes.button} onClick={this.handleSubmit}>
                             Search
                         </Button>
                         <EventList eventData = {this.state.eventList}/>

@@ -18,7 +18,7 @@ const styles = theme => ({
      right: '0%',
      overflowY: 'scroll',
      overflowX: 'hidden',
-     height: '47%'
+     height: '86%'
   },
   divider: {
       color: 'black',

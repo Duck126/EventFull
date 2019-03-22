@@ -2,43 +2,46 @@
 
 const Styles = {
     Container: {
-        height: "40%",
+        height: "auto",
         width: "25%",
         paddingRight:"0%",
         display: 'grid',
         flexWrap: 'wrap',
-        marginLeft: "0%",
-        marginTop: "auto",
         position: "absolute",
         right: "0%",
         top: "7.5%",
-        backgroundColor: "#B1B1B1"
+        backgroundColor: "#B1B1B1",
+        zIndex: "50"
+    },
+    Container2: {
+        display: "grid",
+        width: "100%"
     },
     Date: {
-        marginLeft: "10px",
-        marginRight: "15px",
         positon: "absolute",
         top:"0px",
-        paddingRight:"0%",
+        marginTop: "10px"
     },
     Radius: {
         positon: "relative",
-        marginLeft: "10px",
-        marginRight: "15px",
         top: "0px",
+        marginTop: "10px"
     },
     textField:{
-        marginLeft:"10px",
-        marginRight:"10%",
-        height: "50px"
+        height: "50px",
+        marginTop: "10px"
     },
     button:{
-        height: "15.5%",
+        marginTop: "15px",
+        height: "100%",
         width: "100%",
-        position:"absolute",
-        bottom: "-11%",
-        backgroundColor:'#B1B1B1',
-        zIndex: 50,
+        position:"relative",
+        bottom: "0%",
+        backgroundColor:'white',
+        font: "white"
+    },
+    labels:{
+        marginBottom:"20px"
     }
 };
 

@@ -6,13 +6,18 @@ import Styles from '../../styles/InputStyles';
 import TextField from '@material-ui/core/TextField';
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
+import ExpansionPanel from '@material-ui/core/ExpansionPanel';
+import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import MenuItem from '@material-ui/core/MenuItem';
 import Button from '@material-ui/core/Button';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import EventList from '../EventList/EventList';
 import Grid from "@material-ui/core/Grid";
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import unImage from '../../assets/images/unav.png';
+import Typography from '@material-ui/core/Typography';
 
 class InputBar extends React.Component {
     constructor(props){
@@ -113,66 +118,71 @@ class InputBar extends React.Component {
         return (
             <Grid container>
                 <Grid item xs={3} sm={3} md={3} lg={3} xl={3}>
-                    <form className={classes.Container} style={Styles.Container} noValidate>
-                        <TextField
-                            id="event"
-                            label="Event"
-                            className={classes.textField}
-                            value={this.state.searchInput}
-                            onChange={this.handleChange('searchInput')}
-                            margin="normal"
-                        />
-                        <TextField
-                            id="location"
-                            label="Location"
-                            className={classes.textField}
-                            value={this.state.location}
-                            onChange={this.handleChange('location')}
-                            margin="normal"
-                        />
-                        <FormControl className={classes.formControl} style={Styles.Date}>
-                            <InputLabel shrink htmlFor="age-label-placeholder" style={Styles.Date}>
-                                Date
-                            </InputLabel>
-                            <Select
-                                value={this.state.date}
-                                onChange={this.handleInput}
-                                input={<Input name="date" id="date" />}
-                                displayEmpty
-                                name="date"
-                                className={classes.selectEmpty}
-                                style={Styles.Date}
-                            >
-                                <MenuItem value={"today"}>Today</MenuItem>
-                                <MenuItem value={"tomorrow"}>Tomorrow</MenuItem>
-                                <MenuItem value={"this_week"}>This Week</MenuItem>
-                                <MenuItem value={"this_month"}>This Month</MenuItem>
-                            </Select>
-                        </FormControl>
-                        <FormControl className={classes.formControl} style={Styles.Radius}>
-                            <InputLabel shrink htmlFor="age-label-placeholder" style={Styles.Radius}>
-                                Radius
-                            </InputLabel>
-                            <Select
-                                value={this.state.radius}
-                                onChange={this.handleInput}
-                                input={<Input name="radius" id="radius" />}
-                                displayEmpty
-                                name="radius"
-                                className={classes.selectEmpty}
-                                style={Styles.Radius}
-                            >
-                                <MenuItem value={"5mi"}>5mi</MenuItem>
-                                <MenuItem value={"10mi"}>10mi</MenuItem>
-                                <MenuItem value={"20mi"}>20mi</MenuItem>
-                                <MenuItem value={"30mi"}>30mi</MenuItem>
-                            </Select>
-                        </FormControl>
-                        <Button variant="contained" color="black" className={classes.button} onClick={this.handleSubmit}>
-                            Search
-                        </Button>
-                        <EventList eventData = {this.state.eventList}/>
-                    </form>
+                    <ExpansionPanel className={classes.Container}>
+                        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+                            <Typography className={classes.heading}>Search Input</Typography>
+                        </ExpansionPanelSummary>
+                        <ExpansionPanelDetails>
+                            <form className={classes.Container2}noValidate>
+                                <TextField
+                                    id="event"
+                                    label="Event"
+                                    className={classes.textField}
+                                    value={this.state.searchInput}
+                                    onChange={this.handleChange('searchInput')}
+                                />
+                                <TextField
+                                    id="location"
+                                    label="Location"
+                                    className={classes.textField}
+                                    value={this.state.location}
+                                    onChange={this.handleChange('location')}
+                                />
+                                <FormControl className={classes.formControl} style={Styles.Date}>
+                                    <InputLabel shrink htmlFor="age-label-placeholder" style={Styles.labels}>
+                                        Date
+                                    </InputLabel>
+                                    <Select
+                                        value={this.state.date}
+                                        onChange={this.handleInput}
+                                        input={<Input name="date" id="date" />}
+                                        displayEmpty
+                                        name="date"
+                                        className={classes.selectEmpty}
+                                        style={Styles.Date}
+                                    >
+                                        <MenuItem value={"today"}>Today</MenuItem>
+                                        <MenuItem value={"tomorrow"}>Tomorrow</MenuItem>
+                                        <MenuItem value={"this_week"}>This Week</MenuItem>
+                                        <MenuItem value={"this_month"}>This Month</MenuItem>
+                                    </Select>
+                                </FormControl>
+                                <FormControl className={classes.formControl} style={Styles.Radius}>
+                                    <InputLabel shrink htmlFor="age-label-placeholder" style={Styles.labels}>
+                                        Radius
+                                    </InputLabel>
+                                    <Select
+                                        value={this.state.radius}
+                                        onChange={this.handleInput}
+                                        input={<Input name="radius" id="radius" />}
+                                        displayEmpty
+                                        name="radius"
+                                        className={classes.selectEmpty}
+                                        style={Styles.Radius}
+                                    >
+                                        <MenuItem value={"5mi"}>5mi</MenuItem>
+                                        <MenuItem value={"10mi"}>10mi</MenuItem>
+                                        <MenuItem value={"20mi"}>20mi</MenuItem>
+                                        <MenuItem value={"30mi"}>30mi</MenuItem>
+                                    </Select>
+                                </FormControl>
+                                <Button variant="contained" color="black" className={classes.button} onClick={this.handleSubmit}>
+                                    Search
+                                </Button>
+                            </form>
+                        </ExpansionPanelDetails>
+                    </ExpansionPanel>
+                    <EventList eventData = {this.state.eventList}/>
                 </Grid>
             </Grid>
 

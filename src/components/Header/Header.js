@@ -17,11 +17,11 @@ const styles = {
     marginRight: 20,
   },
   logo: {
-    height: '125%',
-    width: '7.5%',
+    height: '100%',
+    width: '12.5%',
     position: 'absolute',
     top: '0%',
-    left: '42.5%' 
+    left: '43.25%' 
   },
   bgimage: {
     width: '100%',

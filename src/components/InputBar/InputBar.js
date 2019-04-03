@@ -78,7 +78,8 @@ class InputBar extends React.Component {
                 let eventLoc = {
                     lat: parseFloat(events[i].venue.latitude),
                     lng: parseFloat(events[i].venue.longitude),
-                    eventId: i + 1
+                    eventId: i + 1,
+                    name: events[i].name.text
                 };
                 locArr.push(eventLoc);
                 tempArr.push(event);
